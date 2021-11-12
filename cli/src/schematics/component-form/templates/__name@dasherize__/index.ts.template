@@ -1,0 +1,3 @@
+import Base<%= classify(name) %> from './src/Base<%= classify(name) %>.vue';
+
+export default Base<%= classify(name) %>;

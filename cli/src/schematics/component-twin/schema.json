@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsTwinComponent",
+  "title": "创建基础组件和基于该基础组件的自定义组件的一套组件",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "组件的名称",
+      "x-prompt": "请输入组件的名称",
+      "alias": "n"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

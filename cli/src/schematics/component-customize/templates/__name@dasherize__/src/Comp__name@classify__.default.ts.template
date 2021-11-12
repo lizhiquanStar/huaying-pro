@@ -1,0 +1,3 @@
+import { Comp<%= classify(name) %>Adapter } from './Comp<%= classify(name) %>.adapter';
+
+export const COMP_<%= underscore(name).toLocaleUpperCase() %>_DEFAULT_CONFIG: Comp<%= classify(name) %>Adapter = {};

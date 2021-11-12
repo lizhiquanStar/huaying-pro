@@ -1,0 +1,65 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "view": {
+      "description": "在views文件夹或者module中创建view文件夹",
+      "factory": "./schematics/view/index#view",
+      "schema": "./schematics/view/schema.json"
+    },
+    "module": {
+      "description": "在views文件夹中创建module文件夹",
+      "factory": "./schematics/module/index#module",
+      "schema": "./schematics/module/schema.json"
+    },
+    "ui-component": {
+      "description": "创建页面，页面组件，layout等地方的分割功能的组件",
+      "factory": "./schematics/component-ui/index#uiComponent",
+      "schema": "./schematics/component-ui/schema.json"
+    },
+    "dependent-component": {
+      "description": "创建有依赖的页面组件",
+      "factory": "./schematics/component-dependent/index#dependentComponent",
+      "schema": "./schematics/component-dependent/schema.json"
+    },
+    "base-component": {
+      "description": "创建基础组件",
+      "factory": "./schematics/component-base/index#baseComponent",
+      "schema": "./schematics/component-base/schema.json"
+    },
+    "el-component": {
+      "description": "创建element-ui基础组件",
+      "factory": "./schematics/component-el/index#elComponent",
+      "schema": "./schematics/component-el/schema.json"
+    },
+    "form-component": {
+      "description": "创建表单组件",
+      "factory": "./schematics/component-form/index#formComponent",
+      "schema": "./schematics/component-form/schema.json"
+    },
+    "customize-component": {
+      "description": "创建自定义组件",
+      "factory": "./schematics/component-customize/index#customizeComponent",
+      "schema": "./schematics/component-customize/schema.json"
+    },
+    "twin-component": {
+      "description": "创建基础组件和基于该基础组件的自定义组件的一套组件",
+      "factory": "./schematics/component-twin/index#twinComponent",
+      "schema": "./schematics/component-twin/schema.json"
+    },
+    "functional-component": {
+      "description": "创建小型功能组件",
+      "factory": "./schematics/component-functional/index#functionalComponent",
+      "schema": "./schematics/component-functional/schema.json"
+    },
+    "business-component": {
+      "description": "创建业务组件",
+      "factory": "./schematics/component-business/index#businessComponent",
+      "schema": "./schematics/component-business/schema.json"
+    },
+    "crud-template": {
+      "description": "创建增删改查模板页面",
+      "factory": "./schematics/template-crud/index#crudTemplate",
+      "schema": "./schematics/template-crud/schema.json"
+    }
+  }
+}

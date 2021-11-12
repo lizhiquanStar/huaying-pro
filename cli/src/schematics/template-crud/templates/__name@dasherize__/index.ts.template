@@ -1,0 +1,3 @@
+import The<%= classify(name) %> from './src/The<%= classify(name) %>.vue';
+
+export default The<%= classify(name) %>;

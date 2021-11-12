@@ -1,0 +1,3 @@
+import <%= withHostFilePrefix(classify(name)) %> from './src/<%= withHostFilePrefix(classify(name)) %>.vue';
+
+export default <%= withHostFilePrefix(classify(name)) %>;

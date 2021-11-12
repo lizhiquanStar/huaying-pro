@@ -1,0 +1,6 @@
+import { Base<%= classify(name) %>Adapter } from '<%= baseComponentPath %>/<%= dasherize(name) %>/src/Base<%= classify(name) %>.adapter';
+import { CustomizeComponentAdapter } from '@/core/dtos/component-customize.dto';
+
+export interface Comp<%= classify(name) %>Adapter extends CustomizeComponentAdapter {
+  <%= camelize(name) %>: Base<%= classify(name) %>Adapter;
+}

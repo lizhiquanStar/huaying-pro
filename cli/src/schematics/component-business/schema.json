@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsBusinessComponent",
+  "title": "创建业务组件",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "业务组件的名称",
+      "x-prompt": "请输入组件的名称",
+      "alias": "n"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

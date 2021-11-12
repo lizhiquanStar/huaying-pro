@@ -1,0 +1,25 @@
+<template>
+  <div class="the-<%= dasherize(name) %>">
+    <fl-breadcrumb :breadcrumbConfig="breadcrumbConfig"></fl-breadcrumb>
+    <comp-search :searchConfig="searchConfig"></comp-search>
+    <fl-button-group :buttonGroupConfig="buttonGroupConfig"></fl-button-group>
+    <comp-grid :gridConfig="gridConfig"></comp-grid>
+    <comp-add-edit-dialog :addEditDialogConfig="addEditDialogConfig"></comp-add-edit-dialog>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Mixins } from 'vue-property-decorator';
+import { The<%= classify(name) %>Config } from './The<%= classify(name) %>.config';
+
+@Component({})
+export default class The<%= classify(name) %> extends Mixins(The<%= classify(name) %>Config) {
+
+}
+</script>
+
+<style lang="scss">
+@import "<%= exportScssPath %>";
+
+@include b(the-<%= dasherize(name) %>) {}
+</style>

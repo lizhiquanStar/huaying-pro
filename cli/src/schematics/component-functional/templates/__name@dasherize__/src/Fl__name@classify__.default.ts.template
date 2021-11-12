@@ -1,0 +1,3 @@
+import { Fl<%= classify(name) %>Adapter } from './Fl<%= classify(name) %>.adapter';
+
+export const FL_<%= underscore(name).toLocaleUpperCase() %>_DEFAULT_CONFIG: Fl<%= classify(name) %>Adapter = {};

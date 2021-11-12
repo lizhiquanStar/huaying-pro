@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsCurdTemplate",
+  "title": "创建增删改查模板页面",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "模板页面的名称",
+      "x-prompt": "请输入增删改查模板页面的名称",
+      "alias": "n"
+    },
+    "module": {
+      "type": "string",
+      "description": "模块的名称",
+      "x-prompt": "请输入页面所在模块的名称（非必填）",
+      "alias": "m"
+    },
+    "viewPath": {
+      "type": "string",
+      "description": "view文件夹的目录路径"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

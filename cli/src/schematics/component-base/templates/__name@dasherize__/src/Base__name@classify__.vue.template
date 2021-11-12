@@ -1,0 +1,30 @@
+<template>
+  <div class="base-<%= dasherize(name) %>">
+    Base<%= classify(name) %> Working!
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Base<%= classify(name) %>Adapter, Base<%= classify(name) %>Output } from './Base<%= classify(name) %>.adapter';
+import { BASE_<%= underscore(name).toLocaleUpperCase() %>_DEFAULT_CONFIG } from './Base<%= classify(name) %>.default';
+import BaseComponentFactory from '@/core/factory/component-base.factory';
+import defaultsDeep from 'lodash/defaultsDeep';
+
+@Component({})
+export default class Base<%= classify(name) %> extends Mixins(BaseComponentFactory) {
+  @Prop({ type: Object }) config!: Base<%= classify(name) %>Adapter;
+  get Config(): Base<%= classify(name) %>Adapter {
+    return defaultsDeep(this.config, BASE_<%= underscore(name).toLocaleUpperCase() %>_DEFAULT_CONFIG);
+  }
+  get output(): Base<%= classify(name) %>Output {
+    return {};
+  }
+}
+</script>
+
+<style lang="scss">
+@import "<%= exportScssPath %>";
+
+@include b(base-<%= dasherize(name) %>) {}
+</style>

@@ -1,0 +1,3 @@
+import { <%= classify(name) %>Adapter } from './Base<%= classify(name) %>.adapter';
+
+export const <%= underscore(name).toLocaleUpperCase() %>_DEFAULT: <%= classify(name) %>Adapter = {};

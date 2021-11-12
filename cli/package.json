@@ -1,0 +1,30 @@
+{
+  "name": "cli",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^8.3.4",
+    "@angular-devkit/schematics": "^8.3.4",
+    "@types/lodash": "^4.14.139",
+    "@types/node": "^8.0.31",
+    "lodash": "^4.17.15",
+    "typescript": "~3.5.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/minimist": "^1.2.0",
+    "inquirer": "6.5.1",
+    "minimist": "1.2.0",
+    "symbol-observable": "1.2.0",
+    "@schematics/schematics": "0.803.10"
+  }
+}

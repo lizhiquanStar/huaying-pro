@@ -1,0 +1,12 @@
+import { BaseComponentAdapter } from '@/core/dtos/component-base.dto';
+import { El<%= classify(name) %> } from 'element-ui/types/<%= dasherize(name) %>';
+
+export interface <%= classify(name) %>Adapter extends BaseComponentAdapter<El<%= classify(name) %>> {
+  on?: {};
+  // @see https://element.eleme.cn/#/zh-CN/component/<%= dasherize(name) %>
+  [k: string]: any;
+}
+
+export interface <%= classify(name) %>Output {
+  config?: <%= classify(name) %>Adapter;
+}

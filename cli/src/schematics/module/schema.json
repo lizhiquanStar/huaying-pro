@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsModule",
+  "title": "创建module文件夹",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "模块的名称",
+      "x-prompt": "请输入模块的名称",
+      "alias": "n"
+    },
+    "viewPath": {
+      "type": "string",
+      "description": "view文件夹的目录路径"
+    },
+    "modulePath": {
+      "type": "string",
+      "description": "所在其它模块下的路径"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

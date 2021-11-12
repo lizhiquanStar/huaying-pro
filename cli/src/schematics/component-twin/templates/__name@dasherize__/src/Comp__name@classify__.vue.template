@@ -1,0 +1,52 @@
+<template>
+  <base-<%= dasherize(name) %>
+    class="comp-<%= dasherize(name) %>"
+    :config="Config.<%= camelize(name) %>"
+    @change="copyOutputsToTarget('<%= camelize(name) %>Outputs', $event)"
+  >
+    Comp<%= classify(name) %> Working!
+  <base-<%= dasherize(name) %>>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import {
+  COMPONENT_TYPE,
+  CustomizeComponentBase
+} from '@/core/dtos/factories.dto';
+import { Comp<%= classify(name) %>Adapter } from './Comp<%= classify(name) %>.adapter';
+import { COMP_<%= underscore(name).toLocaleUpperCase() %>_DEFAULT_CONFIG } from './Comp<%= classify(name) %>.default';
+import CustomizeComponentFactory from '@/core/factory/component-customize.factory';
+import defaultsDeep from 'lodash/defaultsDeep';
+import { COMPONENT_CONFIG } from '@/config/component.config';
+import Base<%= classify(name) %> from '<%= baseComponentPath %>/<%= dasherize(name) %>/src/Base<%= classify(name) %>.vue';
+import { Base<%= classify(name) %>Output } from '<%= baseComponentPath %>/<%= dasherize(name) %>/src/Base<%= classify(name) %>.adapter';
+
+@Component({
+  components: {
+    Base<%= classify(name) %>
+  }
+})
+export default class Comp<%= classify(name) %> extends Mixins(CustomizeComponentFactory)
+  implements CustomizeComponentBase {
+  @Prop({ type: Object }) <%= camelize(name) %>Config!: Comp<%= classify(name) %>Adapter;
+  get Config(): Comp<%= classify(name) %>Adapter {
+    return defaultsDeep(
+      this.<%= camelize(name) %>Config,
+      COMPONENT_CONFIG.<%= camelize(name) %>,
+      COMP_<%= underscore(name).toLocaleUpperCase() %>_DEFAULT_CONFIG);
+  }
+  get output(): Base<%= classify(name) %>Output {
+    return this.<%= camelize(name) %>Outputs;
+  }
+
+  type = COMPONENT_TYPE.<%= camelize(name) %>;
+  <%= camelize(name) %>Outputs: Base<%= classify(name) %>Output = {};
+}
+</script>
+
+<style lang="scss">
+@import "<%= exportScssPath %>";
+
+@include b(comp-<%= dasherize(name) %>) {}
+</style>

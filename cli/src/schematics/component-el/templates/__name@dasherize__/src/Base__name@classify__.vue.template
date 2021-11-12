@@ -1,0 +1,46 @@
+<template>
+  <el-<%= dasherize(name) %>
+    class="base-<%= dasherize(name) %>"
+    ref="Co<%= classify(name) %>"
+    v-bind="bindConfig"
+    v-on="mergeEventsAndDasherizeKeys([Config.on, $listeners])"
+  >
+  </el-<%= dasherize(name) %>>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { <%= classify(name) %>Adapter, <%= classify(name) %>Output } from './Base<%= classify(name) %>.adapter';
+import { <%= underscore(name).toLocaleUpperCase() %>_DEFAULT } from './Base<%= classify(name) %>.default';
+import BaseComponentFactory from '@/core/factory/component-base.factory';
+import { BaseComponent, COMPONENT_TYPE } from '@/core/dtos/factories.dto';
+import { COMPONENT_CONFIG } from '@/config/component.config';
+
+@Component({ name: 'Co<%= classify(name) %>' })
+export default class Base<%= classify(name) %> extends Mixins(BaseComponentFactory)
+  implements BaseComponent {
+  @Prop({ type: Object }) config!: <%= classify(name) %>Adapter;
+  @Prop({ type: String, default: '' }) compName?: string;
+  @Prop({ type: Boolean }) inner?: boolean;
+
+  get Config(): <%= classify(name) %>Adapter {
+    return _(this.config)
+      .defaultsDeep(COMPONENT_CONFIG.<%= camelize(name) %>, <%= underscore(name).toLocaleUpperCase() %>_DEFAULT)
+      .value();
+  }
+
+  get output(): <%= classify(name) %>Output {
+    return {
+      config: this.Config
+    };
+  }
+
+  $$type = COMPONENT_TYPE.<%= camelize(name) %>;
+}
+</script>
+
+<style lang="scss">
+@import "<%= exportScssPath %>";
+
+@include b(base-<%= dasherize(name) %>) {}
+</style>

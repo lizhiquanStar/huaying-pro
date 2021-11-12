@@ -1,0 +1,120 @@
+import { DeleteFunc } from '@/core/funcs/delete.func';
+import { FlButtonGroupAdapter } from '@/core/components/functional/button-group/src/FlButtonGroup.adapter';
+import { CompGridAdapter } from '@/core/components/customize/grid/src/CompGrid.adapter';
+import { CompAddEditDialogAdapter } from '@/core/components/customize/add-edit-dialog/src/CompAddEditDialog.adapter';
+import { The<%= classify(name) %>Api } from './The<%= classify(name) %>.api';
+import { CompSearchAdapter } from '@/core/components/customize/search/src/CompSearch.adapter';
+import { FlBreadcrumbAdapter } from '@/core/components/functional/breadcrumb/src/FlBreadcrumb.adapter';
+import { Component } from 'vue-property-decorator';
+import ViewFactory from '@/core/factory/view.factory';
+import { COMPONENT_METHOD, COMPONENT_DATA } from '@/core/dtos/factories.dto.ts';
+
+@Component({})
+export class The<%= classify(name) %>Config extends ViewFactory {
+  COMPONENT_METHOD = COMPONENT_METHOD;
+  COMPONENT_DATA = COMPONENT_DATA;
+
+  breadcrumbConfig: FlBreadcrumbAdapter = {
+    items: [
+      {
+        label: '页面标题'
+      }
+    ]
+  };
+
+  searchConfig: CompSearchAdapter = {
+    form: {
+      formItems: [
+        {
+          label: '搜索',
+          modelName: 'test'
+        }
+      ]
+    },
+    handleSearchParam(data) {
+      return data;
+    },
+    formModel: {
+      test: ''
+    }
+  };
+
+  buttonGroupConfig: FlButtonGroupAdapter = {
+    styles: ['operation'],
+    buttons: [
+      {
+        text: '新 增',
+        type: 'primary',
+        icon: 'el-icon-plus',
+        on: {
+          click: () => {
+            this.emit(this.COMPONENT_METHOD.addEditDialogOpen);
+          }
+        }
+      }
+    ]
+  };
+
+  gridConfig: CompGridAdapter = {
+    table: {
+      showNo: true,
+      data: {
+        api: The<%= classify(name) %>Api.list,
+        handleData(data) {
+          return data;
+        }
+      },
+      columns: [
+        {
+          label: '标题',
+          prop: 'title'
+        }, {
+          label: '操作',
+          columnType: 'button',
+          buttonConfig: {
+            buttons: [
+              {
+                text: '编辑',
+                type: 'primary',
+                onClick: ({ row }) => {
+                  this.emit(this.COMPONENT_METHOD.addEditDialogOpen, {
+                    type: 'edit',
+                    payload: row,
+                    requiredKeys: ['id']
+                  });
+                }
+              },
+              {
+                text: '删除',
+                type: 'danger',
+                onClick: async ({ row }) => {
+                  const res = await new DeleteFunc({
+                    api: The<%= classify(name) %>Api.delete,
+                    apiParam: { id: row.id }
+                  }).delete();
+                  if (res) this.emit(this.COMPONENT_METHOD.gridUpdate);
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  };
+
+  addEditDialogConfig: CompAddEditDialogAdapter = {
+    addApi: The<%= classify(name) %>Api.add,
+    editApi: The<%= classify(name) %>Api.edit,
+    addTitle: '新增',
+    editTitle: '编辑',
+    dialog: {
+      width: '60%',
+      minWidth: '800px'
+    },
+    form: {
+      itemWidth: '50%',
+      formItems: []
+    },
+    formModel: {}
+  }
+}

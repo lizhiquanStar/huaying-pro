@@ -1,0 +1,7 @@
+import { BaseComponentAdapter } from '@/core/dtos/component-base.dto';
+
+export interface Base<%= classify(name) %>Adapter extends BaseComponentAdapter {
+  // 以下是 Element UI Attrs 和 events
+  // @see https://element.eleme.cn/#/zh-CN/component/<%= dasherize(name) %>
+  on?: {};
+}

@@ -1,0 +1,3 @@
+import Comp<%= classify(name) %> from './src/Comp<%= classify(name) %>.vue';
+
+export default Comp<%= classify(name) %>;

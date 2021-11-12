@@ -1,0 +1,21 @@
+<template>
+  <div class="the-<%= dasherize(name) %>">
+    The<%= classify(name) %> Working!
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Mixins } from 'vue-property-decorator';
+import { The<%= classify(name) %>Config } from './The<%= classify(name) %>.config';
+
+@Component({})
+export default class The<%= classify(name) %> extends Mixins(The<%= classify(name) %>Config) {
+
+}
+</script>
+
+<style lang="scss">
+@import "<%= exportScssPath %>";
+
+@include b(the-<%= dasherize(name) %>) {}
+</style>

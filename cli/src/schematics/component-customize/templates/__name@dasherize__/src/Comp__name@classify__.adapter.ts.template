@@ -1,0 +1,9 @@
+import { CustomizeComponentAdapter } from '@/core/dtos/component-customize.dto';
+
+export interface Comp<%= classify(name) %>Adapter extends CustomizeComponentAdapter {
+  on?: {};
+}
+
+export interface Comp<%= classify(name) %>Output {
+  default: string;
+}

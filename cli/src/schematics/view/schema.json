@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsView",
+  "title": "创建view文件夹",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "view的名称",
+      "x-prompt": "请输入view的名称",
+      "alias": "n"
+    },
+    "module": {
+      "type": "string",
+      "description": "模块的名称",
+      "x-prompt": "请输入页面所在模块的名称（非必填）",
+      "alias": "m"
+    },
+    "viewPath": {
+      "type": "string",
+      "description": "view文件夹的目录路径"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

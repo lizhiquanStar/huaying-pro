@@ -1,0 +1,5 @@
+import { FunctionalComponentAdapter } from '@/core/dtos/component-functional.dto';
+
+export interface Fl<%= classify(name) %>Adapter extends FunctionalComponentAdapter {
+  on?: {};
+}

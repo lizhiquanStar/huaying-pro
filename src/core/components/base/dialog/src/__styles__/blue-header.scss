@@ -1,0 +1,14 @@
+@include b(base-dialog) {
+  @include when(blue-header) {
+    .el-dialog__header {
+      background: $brandColor;
+    }
+    .el-dialog__title {
+      font-weight:500;
+      color: white;
+    }
+    .el-dialog__headerbtn .el-dialog__close {
+      color: white;
+    }
+  }
+}
